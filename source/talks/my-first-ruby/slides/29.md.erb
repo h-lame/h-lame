@@ -1,0 +1,17 @@
+---
+title: RAA search
+id: slide-029
+slide:
+  :image_url: http://assets.h-lame.com/images/talks/my-first-ruby/slides/029.png
+  :image_alt: A screenshot of Safari showing the Ruby Application Archive search page
+    showing the results of a search for “www”
+  :image_title: 'Slide 29: RAA search'
+---
+That’s the first part of fucknut covered, so now we’re onto the 2nd part, the web front-end.
+
+2003 was a dark time for web development in ruby.  There were lots of little libraries, but nothing as comprehensive as Rails, certainly not the rails we have now, but not even the rails we got in 2005.  The thing that may surprise you is that we didn’t even have gems back in 2003.  The first release of gems was in March 2004.  To find ruby stuff we scoured something called the [Ruby Application Archive](https://www.ruby-lang.org/en/news/2013/08/08/rip-raa/) which was a website similar to what [rubyforge](https://en.wikipedia.org/wiki/RubyForge) is now<% fnrf 5 %>, where you could list ruby projects and categorise them.  Except it did no hosting, you just pointed the links to where the data was.
+
+On top of this, someone wrote a program called `raa-install`, which would go and find projects on RAA, download them and install them.  At this point most libraries, if they had any installation, used [the `ruby setup.rb` incantations](http://setup.rubyforge.org/), and `raa-install` would run those for you too.  It didn’t do dependency graph information, but that’s because this info wasn’t on RAA.  The thing that’s not clear to me looking back, is why gems and rubyforge came along when there was already this in place.  I’ve not looked into it nor looked at the code.  There’s probably an interesting story there.
+
+So, as an aside, I know there’s a bit of hate for gems right now<% fnrf 6 %>, mostly about issues over dependencies and keeping applications and system stuff independent.  I wouldn’t worry about it though, rubygems is not the first ruby code distribution and management system that’s existed, so maybe it won’t be the last.  If it’s served it’s purpose perhaps it is time to move on; be that [bundler](https://bundler.io), [rip](https://github.com/defunkt/rip) or something else.
+

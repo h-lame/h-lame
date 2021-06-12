@@ -1,0 +1,44 @@
+<!doctype html>
+<!--[if lt IE 7]>    <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>     <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>     <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-gb"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= current_page.data[:title] %></title>
+    <meta name="description" content="<%= page_meta_description %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="alternate" type="application/atom+xml" href="/notes/index.atom">
+    <%= stylesheet_link_tag "notes/main" %>
+  </head>
+  <body>
+    <%= partial 'header' %>
+
+    <main>
+      <header>
+        <h1 class="title"><% unless current_page.data[:notes_index] %><a href="/notes">h-notes</a> ∈ <% end %><%= page_title %></h1>
+      </header>
+
+      <div>
+        <%= yield %>
+        <%- if current_page.data[:notes_index] -%>
+        <ol>
+          <% notes.each do |note| %>
+            <li><% link_to(note) do %><%= page_title(note) %><% end %> - <%= page_description(note) %></li>
+          <% end %>
+        </ol>
+        <p><a href="/notes/index.atom"><img class="icon" src="/images/feed-icon.svg"/></a> There's <a href="/notes/index.atom">a feed of these notes</a> if you'd like that.</p>
+        <%- end -%>
+        <%- if content_for? :footnotes %>
+        <aside id="footnotes">
+          <h3><span class="heading-anchor-wrapper"><span class="heading-anchor"><a href="#footnotes" aria-hidden="true">#</a></span></span>Footnotes</h3>
+          <% markdown do %><%= yield_content :footnotes %><% end -%>
+        </aside>
+        <%- end -%>
+      </div>
+    </main>
+
+    <%= partial 'footer' %>
+  </body>
+</html>

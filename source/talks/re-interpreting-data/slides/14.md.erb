@@ -1,0 +1,24 @@
+---
+title: 'Demo time: WAV (pt. 1)'
+id: slide-014
+terminal_output: |-
+  <p class="terminal">irb(main):001:0&gt; require './lib/stegosaurus.rb'
+  <span class="command-result">=&gt; true</span>
+  irb(main):002:0&gt; w = Stegosaurus.waves
+  <span class="command-result">=&gt; #&lt;Stegosaurus::Waves:0x00007fe19f94fce0 @channels=:mono, @sample_rate=22050, @bps=8, @buffer_size=128&gt;</span>
+  irb(main):003:0&gt; w.make_from './README'
+  <span class="command-result">=&gt; "path-to-stegosaurus-README.wav"</span></p>
+
+  <p class="terminal">$ qlmanage -p path-to-stegosaurus-README.wav</p>
+---
+So, let’s see what that sounds like shall we?
+
+First we require the library, “stegosaurus”.  Then we get a “waves” obejct from it - we can use this to make WAV files.  Finally we call “make_from” and give it the path to a file.
+
+We’ll use the README file that ships with this repo.  Then in a separate shell we can run quicklook via `qlmanage -p` on the generated file to [hear what it sounds like](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.wav):
+
+<% audio_figure src: "http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.wav.m4a" do %>
+  The [stegosaurus](https://github.com/h-lame/stegosaurus) README as a WAV file.  Actually it's an M4A version of the WAV to respect your download speeds, but you can [click to download the WAV file](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.wav) if you really want it.
+<% end %>
+
+Yes, well, cough and you’ll miss it.  The problem is, even at the lowest settings for how we encode a WAV file, there’s just not a lot of data in our README file to listen to.  Can we try something else?

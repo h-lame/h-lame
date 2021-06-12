@@ -1,0 +1,26 @@
+---
+title: 'Demo time: MIDI (pt. 2)'
+id: slide-034
+terminal_output: |-
+  <p class="terminal">irb(main):003:0&gt; m.make_from RbConfig.ruby
+  <span class="command-result">=&gt; "path-to-ruby-2.6.5-bin-ruby.mid"</span></p>
+
+  <p class="terminal">$ timidity path-to-ruby-2.6.5-bin-ruby.mid
+  <span class="command-result">Playing path-to-ruby-2.6.5-bin-ruby.mid
+  MIDI file: path-to-ruby-2.6.5-bin-ruby.mid
+  Format: 0  Tracks: 1  Divisions: 12240
+  Maxmum number of events is exceeded
+  [snip messages about instruments not being defined - a better soundfont would solve this and let us hear <em>even</em> more]
+  Playing time: ~3826 seconds
+  Notes cut: 4439
+  Notes lost totally: 302608</span></p>
+---
+Once again, we use the currently running ruby interpreter as the input file and this time we get a MIDI file as our reward.  So lets [give it a listen](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-ruby-2.6.5-bin-ruby.mid):
+
+<% audio_figure src: 'http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-ruby-2.6.5-bin-ruby.mid.m4a' do %>
+  The ruby 2.6.5 interpreter as a MIDI file - (once again this is a M4A version of the MIDI played via `timidity` beceause `&lt;%= browsers %&gt;`, or you can [click to download the MIDI file](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-ruby-2.6.5-bin-ruby.mid) if you want it.
+<% end %>
+
+Again, it's longer than the WAV version at just over an hour<% fnrf 4 %>.  Alas it still sounds like a piano being pushed down the stairs, but, I dunno, there's a chaotic charm to it.  Why not leave it on in the background as some *focused coding* music?
+
+I still think there's scope for me to have a late-stage career change and become an esoteric DJ and avant-noise club nights.

@@ -1,0 +1,15 @@
+---
+title: error message from rubygems about dependencies
+id: slide-010
+slide:
+  :image_url: http://assets.h-lame.com/images/talks/rubygems-contribution/slides/010.png
+  :image_alt: 'An error message from rubygems about dependencies - text: ERROR: While
+    executing gem: Invalid Specification duplicate dependency on rspec (>= 3.0, development),
+    (>= 0) use: add_runtime_dependency ''rspec'', ''>= 3.0'', ''>= 0'''
+  :image_title: 'Slide 10: error message from rubygems about dependencies'
+---
+This is where my problems began; rubygems wouldn’t build our gem and spat out this error message.
+
+Our gemspec said that you could use the gem with any version of rspec (the runtime dependency), but if you wanted to develop the gem you needed rspec 3 or greater (the development dependency).
+
+The error tells me that I canʼt specify rspec twice and should combine the separate runtime and development dependencies into one runtime dependency ultimately saying you needed rspec 3 or greater, which isnʼt what we wanted - the matchers can be used with earlier versions of rspec.  This seemed odd to me as I only changed a single character in the gemspec; [swapping a 2 for a 3 in the development dependency for rspec](https://github.com/unboxed/be_valid_asset/commit/406b912d9c93022da652080ce1f3ab108fa5fb62#diff-099ff9702178da1533c1649a2b82e29d) <% fnrf 1 %>.

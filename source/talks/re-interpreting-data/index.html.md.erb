@@ -1,0 +1,20 @@
+---
+title: Re-interpreting data - slides and transcript
+description: Slides and transcript of a talk called ‘Re-interpreting data’ that I presented at the London Ruby User Group (LRUG) on Monday, 13th January, 2020
+---
+<% content_for(:title) { 'Re-interpreting data' }%>
+<% footnotes do %>
+  <% fndf 1 do %>When I gave this talk, playing the file caused the AV tech to franticly turn the output down as it was quite deafening and clearly they were worried it would bust the speakers.<% end %>
+
+  <% fndf 2 do %>Obvs, not in this write-up you won't because I replaced the boring “WAV DEMO” slide with the irb and terminal sessions instead.<% end %>
+
+  <% fndf 3 do %>While writing this talk up I realised there was a bug in the code I was talking about in this slide.  It would only work for a bitcount of `8` (e.g. where `1` pixel is equal to `1` byte).  The [original code][] didn’t convert the final padding pixels count into a number of final padding bytes.<% end %>
+
+  <% fndf 4 do %>The error messages from `timidity` suggest that we lost a bunch of events, either because the file is too long or because they were playing on channels or notes we have no instruments for, who knows.  Suggests the file could have been *even* longer.  Imagine that!<% end %>
+
+  *[AV]: Audio Visual
+  [original code]: https://github.com/h-lame/stegosaurus/blob/d05db3eecd0d328c9de7886dcedbb16b189b3c5d/lib/stegosaurus/bumps.rb#L242-L255
+<% end %>
+I gave this talk at the [January 2020 meeting of the London Ruby User Group](http://lrug.org/meetings/2020/january/).
+
+The theme of the meeting was “A Ruby Talent Show” where we wanted people to show of things that ruby can do other than building websites or doing devops.  I chose to talk about a little project to convert arbitrary files into sound or images.  There’s no video or recording of this talk so the transcript comes from the presenter notes I made before giving it, which is unlikely to be exactly what I said on the night.

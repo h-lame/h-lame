@@ -1,0 +1,7 @@
+<section class="part" id="<%= part.data[:id] %>" title="<% markdown(inline: true, strip_tags: true) do %><%= part.data[:title] %><% end %>">
+  <%= part.render(layout: false) -%>
+
+  <% slides(part, use_full_path: true).each do |slide| %>
+    <%= partial 'talks/slide', locals: { slide: slide } %>
+  <% end %>
+</section>

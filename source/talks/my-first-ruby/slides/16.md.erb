@@ -1,0 +1,29 @@
+---
+title: handleMessage
+id: slide-016
+slide:
+  :image_url: http://assets.h-lame.com/images/talks/my-first-ruby/slides/016.png
+  :image_alt: 'A snippet of code that shows the handleMessage method; code: https://gist.github.com/h-lame/1f032a1f8181fe220d6f1c2c4d98f64e#file-slide-16-handlemessage-rb'
+  :image_title: 'Slide 16: handleMessage'
+  :caption: "[Gist for code in slide](https://gist.github.com/h-lame/1f032a1f8181fe220d6f1c2c4d98f64e#file-slide-16-handlemessage-rb)\n"
+---
+This is the main method from the mail processing script and it describes the route that the mail takes through the system.
+
+The first thing it does it make sure that the sender of the mail is one of the users.  We’re all digital natives so a user is allowed to have several email addresses attached to their account and can post from any of them.
+
+If it’s not a valid user the mail is discarded.  If it is a valid user we continue processing it.
+
+The next thing we do is set the from address to the user’s preferred posting address.  I might send email from my work account, but I don’t want people using that account to mail me (and this was important at the time because my work email address changed about 4 times as the company underwent furious rebranding every few months at the whim of our VCs) so we tell fucknut to make it seem like all my mail comes from my personal account.
+
+We then massage the subject of the mail to add our list identifier and keep “re:”s down to a minimum.
+
+Then we do various things to the headers, mostly required of us by the 12 hundred RFCs that there are about mailing lists<% fnrf 4 %>.
+
+Then we process any attachments to save them to a separate data store.  And, because we wrote this in 2003 when many people were still on dialup, remove any attachments over a certain limit.
+
+Then we archive the message to our database (for which read dump the raw mail to disk).
+
+Finally, we go through the complete user list and send the mail out to all the users.  Including the sender.
+
+And that’s it.  That’s Fucknut at a glance.  Now I’ve described the system I’ll go over some of the code that I think is particularly terrible.
+

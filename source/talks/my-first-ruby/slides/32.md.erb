@@ -1,0 +1,23 @@
+---
+title: Apache config
+id: slide-032
+slide:
+  :image_url: http://assets.h-lame.com/images/talks/my-first-ruby/slides/032.png
+  :image_alt: 'A code fragment showing the Apache configuration for running the handler.rb
+    script; code: https://gist.github.com/h-lame/1f032a1f8181fe220d6f1c2c4d98f64e#file-slide-32-apache-conf'
+  :image_title: 'Slide 32: Apache config'
+  :caption: "[Gist for code in slide](https://gist.github.com/h-lame/1f032a1f8181fe220d6f1c2c4d98f64e#file-slide-32-apache-conf)\n"
+---
+There’s no nice abstraction of routes, but then that’s not surprising, it’s not a higher-level MVC framework. It’s a web framework. It abstracts the first level of CGI interaction, it doesn’t build on top of it to give you what rails or sinatra gives you.
+
+So, you run it as a CGI script, although you could have used [`mod_ruby`](https://github.com/shugo/mod_ruby) (no, not [passenger](https://www.phusionpassenger.com/), the `mod_ruby` that existed ages ago that no-body used).  And if you’ve installed `ruby_fastcgi`<% fnrf 7 %> you can run it as [fastcgi](https://en.wikipedia.org/wiki/FastCGI).  So, it’s very bare bones, if you want fancy urls you have to write them yourselves using `RewriteRule` directives.  This is ours.
+
+We clearly got bored, as there are a few more URLs in the webhead other than looking at the archives, but we clearly couldn’t be bothered with making them pretty, most likely because we’d have to write them in this non-expressive regex format.
+
+That said, I’m pretty sure early versions of rails asked you to do the same thing.  I could be wrong though.  Already it should be clear we are working at a lower level of abstraction.  We’re close to the metal here.
+
+
+*[MVCs]: Model View Controller
+*[MVC]: Model View Controller
+*[CGIs]: Common Gateway Interface
+*[CGI]: Common Gateway Interface

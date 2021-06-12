@@ -1,0 +1,16 @@
+body > footer {
+  nav > ol {
+    display: inline-block;
+    padding-left: 0;
+    li {
+      display: inline;
+    }
+  }
+  nav + p {
+    @extend .hug;
+  }
+  > *:last-child {
+    padding-bottom: $leading;
+    margin-bottom: 0;
+  }
+}

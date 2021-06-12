@@ -1,0 +1,22 @@
+---
+title: 'Demo time: BMP (pt. 1)'
+id: slide-024
+terminal_output: |-
+  <p class="terminal">irb(main):001:0&gt; require './lib/stegosaurus'
+  <span class="command-result">=&gt; true</span>
+  irb(main):002:0&gt; b = Stegosaurus.bumps
+  <span class="command-result">=&gt; #&lt;Stegosaurus::Bumps:0x00007fe6ff89b190 @bit_count=8&gt;</span>
+  irb(main):003:0&gt; b.make_from './README'
+  <span class="command-result">=&gt; "path-to-stegosaurus-README.bmp"</span></p>
+
+  <p class="terminal">$ qlmanage -p path-to-stegosaurus-README.bmp</p>
+---
+Demo time!
+
+As before, we require the library, and this time we get a `bumps` object as this is what makes BMP files.  Then we pass it the `README` file again, and run quicklook on it to [see what it looks like](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.bmp):
+
+<% img_figure src: "http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.bmp" do %>
+  The [stegosaurus](https://github.com/h-lame/stegosaurus) README file, as a bitmap, albeit scaled up somewhat.  [Click through](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.bmp) for actual size.
+<% end %>
+
+Not very interesting is it?  As with the WAV file version of the readme, it's small and not very interesting.  It's just some noise really.  Let's try something more interesting.

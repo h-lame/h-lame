@@ -1,0 +1,28 @@
+---
+title: Fucknut architecture
+id: slide-015
+slide:
+  :image_url: http://assets.h-lame.com/images/talks/my-first-ruby/slides/015.jpg
+  :image_alt: A hand-drawn architecture diagram of the fucknut system; Emails go into
+    Procmail which reads from procmail.rc that contains a regexp to pipe the email
+    to the fucknut.rb script; this script uses the YAML::Syck, Rmail, and Net::SMTP
+    libraries, and outputs to an Archive database, and a set of users
+  :image_title: 'Slide 15: Fucknut architecture'
+---
+The main component of fucknut is the part that processes mail, and this is also the oldest part of it as it’s based on James’ inital prototype.
+
+It starts with a `.procmailrc` file.  For those that don’t know, [procmail](https://en.wikipedia.org/wiki/Procmail) is a UNIX tool that you can get to run against every mail that is delivered to your shell account and the `.procmailrc` file controls it.  You can think of it like a [rails `routes.rb` file](http://guides.rubyonrails.org/routing.html) for mail (except it doesn’t use ruby or have a nice dsl).
+
+You define a regexp to match against some part of the incoming mail and if it matches you can decide what to do, for example forward the mail to `/dev/null`, or invoke a script on it (it passes the mail in via `STDIN`).  You also decide if you want to stop processing or continue to see if it matches other rules.
+
+For fucknut we have a rule that matches against the TO (or CC) address, and if it matches the list address we ask procmail to invoke a list handler script for that list.
+
+These handler scripts are slim wrappers that set up the environment for the mailing list processor and then pass it the mail as a ruby object.  We use [Rmail](https://github.com/terceiro/rmail) for this (not the [Tmail](http://tmail.rubyforge.org/) or [Mail](https://github.com/mikel/mail) gems which you may be more famlilar with).
+
+This mail part of fucknut also uses [`YAML::Syck`](https://ruby-doc.org/stdlib-1.8.6/libdoc/yaml/rdoc/YAML.html) (which is now the default YAML parser in 1.8.x so you’re just using `YAML` now<% fnrf 3 %>) to deal with some configuration stuff and [Net::Smtp](http://ruby-doc.org/stdlib-1.8.6/libdoc/net/smtp/rdoc/Net/SMTP.html) to send out email.
+
+We’ll cover this in detail later, but having received an email it stores it in an archive db and then sends it on to the other users on the list.
+
+
+*[YAMLs]: YAML Ain't Markup Language
+*[YAML]: YAML Ain't Markup Language

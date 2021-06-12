@@ -1,0 +1,18 @@
+<section class="talk-section numbered" id="<%= slide.data[:id] %>">
+  <h2 class="slide-title"><% markdown(inline: true) do %><%= slide.data[:title] %><% end %></h2>
+  <% if slide.data[:slide].present? -%>
+    <figure class="slides">
+      <img class="slide" src="<%= slide.data[:slide][:image_url] %>" alt="<%= slide.data[:slide][:image_alt] %>"<% if slide.data[:slide][:image_title].present? %> title="<%= slide.data[:slide][:image_title]%>"<% end %>>
+      <% if slide.data[:slide][:caption] -%>
+        <figcaption><% markdown do %><%= slide.data[:slide][:caption] %><% end %></figcaption>
+      <%- end %>
+    </figure>
+  <%- elsif slide.data[:terminal_output].present? -%>
+    <div class="slides">
+      <%= slide.data[:terminal_output] %>
+    </div>
+  <%- end -%>
+  <div class="transcript">
+    <%= slide.render(layout: false) -%>
+  </div>
+</section>

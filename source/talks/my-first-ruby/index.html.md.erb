@@ -1,0 +1,46 @@
+---
+title: My first ruby - slides and transcript
+description: Slides and transcript of a talk called ‘My first ruby’ that I presented at the London Ruby User Group (LRUG) on Monday, 14th June, 2010
+prepend_toc_items:
+  - id: video
+    title: Video
+---
+<% content_for(:title) { 'My first ruby' }%>
+<% footnotes do %>
+  <% fndf 1 do %>Of minor interest is that this one-click mailman install is what we use to run the [LRUG mailing list][].<% end %>
+
+  <% fndf 2 do %>Not even [SVN][], even though I'm pretty sure I would have been using SVN at work at this stage, so the choice of CVS seems unusual.<% end %>
+
+  <% fndf 3 do %>Of course these days (ruby 1.9x onwards) the default YAML parser is [Psych][].<% end %>
+
+  <% fndf 4 do %>More specifically we implemented [RFC 2369][] and [RFC 2919][].<% end %>
+
+  <% fndf 5 do %>This is true in more ways than one, as both RAA and Rubyforge have both since been shutdown [rubygems.org][] is the preferred way to distribute libraries these days.<% end %>
+
+  <% fndf 6 do %>I think what I'm referring to here is [the announcement of rip as an alternative][rubygems-alternative-rip].  I can't really remember, but rubygems did last and rip didn't so maybe it doesn't really matter.<% end %>
+
+  <% fndf 7 do %>I'm not really sure which library I'm referring to here.  I might mean [`fcgi`][fcgi], but that's always been called `fcgi` or `fastcgi`, not `ruby_fastcgi` as far as I can tell.  It's possible I mean some long forgotten binding that no longer exists.<% end %>
+
+  *[LRUG]: Londonr Ruby User Group
+  *[SVN]: Subversion
+  *[CVS]: Concurrent Version System
+  *[YAML]: YAML Ain't Markup Language
+  *[RAA]: Ruby Application Archive
+
+  [LRUG mailing list]: http://lrug.org/mailing-list
+  [SVN]: https://subversion.apache.org/
+  [Psych]: https://github.com/ruby/psych
+  [RFC 2369]: https://www.ietf.org/rfc/rfc2369.txt
+  [RFC 2919]: https://www.ietf.org/rfc/rfc2919.txt
+  [rubygems.org]: https://rubygems.org
+  [rubygems-alternative-rip]: https://www.infoq.com/news/2009/06/rip
+  [fcgi]: https://rubygems.org/gems/fcgi/
+<% end %>
+<% content_for(:video) do %>
+  A [video of this talk](https://skillsmatter.com/skillscasts/1427-my-first-ruby) is availble from [Skills Matter](http://skillsmatter.com/):
+
+  [<img class="video-poster" src="http://assets.h-lame.com/images/talks/my-first-ruby/skillsmatter-video-poster.jpg" title="Video of the talk" alt="a screenshot of the video for the talk from the skills matter website">](https://skillsmatter.com/skillscasts/1427-my-first-ruby)
+<% end %>
+I gave this talk at the [June 2010 meeting of the London Ruby User Group](http://lrug.org/meetings/2010/june/).  Accordingly some of the things in it might be out of date, particularly references to versions of software.
+
+The transcript below comes from the presenter notes so represents a perfect version, which is unlikely to be exactly what I said on the night.

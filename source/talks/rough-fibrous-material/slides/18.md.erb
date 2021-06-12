@@ -1,0 +1,19 @@
+---
+title: '`Detour.do {|d| talk << 4}`'
+id: slide-018
+slide:
+  :image_url: http://assets.h-lame.com/images/talks/rough-fibrous-material/slides/018.png
+  :image_alt: 'Comparisons of code to read a webpage using standard and event-based
+    techniques (the event-based technique is significantly longer), text: Detour.do
+    {|d| talk << 4}'
+  :image_title: 'Slide 18: Detour.do {|d| talk << 4}'
+---
+Well… another *quick* detour.  If you’ve ever done any evented programming you’ll know that the code is very different looking to normal code.
+
+Here’s a simplified example of how to read a webpage.  For the normal case it’s really simple, you just call a couple of methods.
+
+The evented case, not so much.  You have to rely on callback methods and keep some object around to hold the result of those callbacks.  What you lose in a simplified API you gain in performance and flexibility, but it’s hard to get your head around<% fnrf 1 %>.
+
+
+*[APIs]: Application Programming Interface
+*[API]: Application Programming Interface

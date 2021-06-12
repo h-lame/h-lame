@@ -1,0 +1,10 @@
+// there's .hug in vendor/_typebase.scss that does margin-top: 0;
+.spoon {
+  margin-bottom: 0;
+}
+.reject-hug {
+  margin-top: $leading;
+}
+.reject-spoon {
+  margin-bottom: $leading;
+}

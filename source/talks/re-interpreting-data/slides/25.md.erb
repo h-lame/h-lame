@@ -1,0 +1,16 @@
+---
+title: 'Demo time: BMP (pt. 2)'
+id: slide-025
+terminal_output: |-
+  <p class="terminal">irb(main):004:0&gt; b.make_from RbConfig.ruby
+  <span class="command-result">=&gt; "path-to-ruby-2.6.5-bin-ruby.bmp"</span></p>
+
+  <p class="terminal">$ qlmanage -p path-to-ruby-2.6.5-bin-ruby.bmp</p>
+---
+That's more like it - we pass the ruby interpreter using `RbConfig.ruby` like we did for the WAV file demo and get to [see what the ruby interpreter looks like](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-ruby-2.6.5-bin-ruby.bmp):
+
+<% img_figure src: "http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-ruby-2.6.5-bin-ruby.bmp" do %>
+  The ruby 2.6.5 interpreter as a bitmap, albeit scaled down somewhat.  [Click through](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to--ruby-2.6.5-bin-ruby.bmp) for actual size.  I tried saving as a JPEG or PNG to get a smaller file, but it didn't really help, sorry).
+<% end %>
+
+With the WAV file, had we listened to the entire “song” we’d have noticed the different parts that we can see clearly in this image version.  There's some structure to the file, for example, the start of the interpreter is all pinky-red, as you might expect for the ruby language, then there's a dark bit (probably all the stuff shamefully inherited from perl) and the majority of the interpreter is this noisy green stuff, which I'm sure you all recognise.  Maybe it's the error handling?

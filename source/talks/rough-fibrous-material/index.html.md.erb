@@ -1,0 +1,32 @@
+---
+title: Some rough fibrous material - slides and transcript
+description: Slides and transcript of a talk called ‘Some rough fibrous material’ that I presented at the London Ruby User Group (LRUG) on Monday, 8th February, 2010
+prepend_toc_items:
+  - id: video
+    title: Video
+append_toc_items:
+  - id: research-links
+    title: Research links
+---
+<% content_for(:title) { 'Some rough fibrous material' }%>
+<% footnotes do %>
+  <% fndf 1 do %> To be fair to the evented code, the `open` method is a blunt abstraction that wraps up some gnarly `Net::HTTP` code thatʼs not much better than the evented code in the slide.  I guess I wanted to make Neverblock look like a better idea.<% end %>
+
+  <% fndf 2 do %> The slide suggests visiting [www.espace.com.eg/neverblock](http://www.espace.com.eg/neverblock/), but that page no longer exists. The github repo will have to do for now.<% end %>
+<% end %>
+<% content_for(:video) do %>
+  A [video of this talk](https://skillsmatter.com/skillscasts/1247-fibers-in-ruby-1-9) is availble from [Skills Matter](http://skillsmatter.com/):
+
+  [<img class="video-poster" src="http://assets.h-lame.com/images/talks/rough-fibrous-material/skillsmatter-video-poster.jpg" title="Video of the talk" alt="a screenshot of the video for the talk from the skills matter website">](https://skillsmatter.com/skillscasts/1247-fibers-in-ruby-1-9)
+<% end %>
+<% content_for(:'research-links') do %>
+  Bonus list of links to my research:
+
+  * [https://pinboard.in/u:h-lame/t:fibers](https://pinboard.in/u:h-lame/t:fibers) (most of the stuff I researched is here)
+  * [http://github.com/oldmoe/neverblock](http://github.com/oldmoe/neverblock)
+  * [http://en.wikipedia.org/wiki/Fiber_(computer_science)](http://en.wikipedia.org/wiki/Fiber_(computer_science))
+  * [http://en.wikipedia.org/wiki/Coroutine](http://en.wikipedia.org/wiki/Coroutine)
+<% end %>
+I gave this talk at the [February 2010 meeting of the London Ruby User Group](http://lrug.org/meetings/2010/february/).
+
+The slide format was 20x20; twenty slides that auto-transition after twenty seconds.  The transcript below comes from the presenter notes so represents a perfect version, which is unlikely to be exactly what I said on the night.

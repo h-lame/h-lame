@@ -1,0 +1,28 @@
+---
+title: 'Demo time: MIDI (pt. 1)'
+id: slide-033
+terminal_output: |-
+  <p class="terminal">irb(main):001:0&gt; require './lib/stegosaurus'
+  <span class="command-result">=&gt; true</span>
+  irb(main):002:0&gt; m = Stegosaurus.midriffs
+  <span class="command-result">=&gt; #&lt;Stegosaurus::Midriffs:0x00007fd9010b6dc8 @buffer_size=216, @frames_per_second=25, @ticks_per_frame=120&gt;</span>
+  irb(main):003:0&gt; m.make_from './README'
+  <span class="command-result">=&gt; "path-to-stegosaurus-README.mid"</span></p>
+
+  <p class="terminal">$ timidity path-to-stegosaurus-README.mid
+  <span class="command-result">Playing path-to-stegosaurus-README.mid
+  MIDI file: path-to-stegosaurus-README.mid
+  Format: 0  Tracks: 1  Divisions: 12240
+  Warning: path-to-stegosaurus-README.mid: Too shorten midi file.
+  [snip messages about instruments not being defined - a better soundfont would solve this and let us hear <em>even</em> more]
+  Playing time: ~8 seconds
+  Notes cut: 0
+  Notes lost totally: 0</span></p>
+---
+As expected we require stegosaurus and get our object for making thingse, this time a `midriffs`, and then pass it the README file.  We can't use quicklook this time around, because macos doesn't have default support for MIDI files.  It's actually a bit of a faff, but there's a program called [`timidity`](http://timidity.sourceforge.net) that you can install via [brew](https://brew.sh) and this'll play the file.  So we pass it to that to [hear what it sounds like](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.mid):
+
+<% audio_figure src: "http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.mid.m4a" do %>
+  The [stegosaurus](https://github.com/h-lame/stegosaurus) README file, as a MIDI file.  Actually this is a M4A recording of the MIDI played via `timidity` because browsers no longer support direct MIDI playing.  But you can still [click to download the MIDI file](http://assets.h-lame.com/images/talks/re-interpreting-data/output/path-to-stegosaurus-README.mid) if you want it.
+<% end %>
+
+So it's longer than the WAV version at 6 seconds rather than almost none.  But this is what you might expect as MIDI is a set of notes to be played so we get more sound with less data.  Let's see what even more data sounds like.
